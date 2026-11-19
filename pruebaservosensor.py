@@ -1,3 +1,4 @@
+import os
 import board
 import digitalio
 import analogio
@@ -17,8 +18,8 @@ pwm_servo = pwmio.PWMOut(SERVO_PIN, duty_cycle=2 ** 15, frequency=50)
 mi_servo = servo.Servo(pwm_servo)
 
 #Configuración de RED
-SSID = "wfrre-Docentes"
-PASSWORD = "20$tscFrre.24"
+SSID = os.getenv("CIRCUITPY_WIFI_SSID")
+PASSWORD = os.getenv("CIRCUITPY_WIFI_PASSWORD")
 BROKER = "10.13.100.61"  
 NOMBRE_EQUIPO = "masones"
 DESCOVERY_TOPIC = "descubrir"
